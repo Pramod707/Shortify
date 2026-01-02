@@ -3,15 +3,27 @@ const app = express()
 const PORT  = 8000;
 const {connectToMongo} = require('./Connection');
 const urlRoute = require('./ROUTES/url.routes');
-
+const Url = require('./MODELS/url.model');
 //middleware
 app.use(express.json())
 
-app.use('/url',urlRoute);
-
+//database connection
 connectToMongo('mongodb://127.0.0.1:27017/shortify')
 .then(()=> console.log('database is connected successfully'))
 .catch((err)=>console.log(err));
+//url routes
+app.use('/url',urlRoute);
+app.get('/:shortId', async(req,res)=>{
+    const shortId = req.params.shortId;
+    const entry =  await Url.findOneAndUpdate({
+        shortId,
+    },{$push : {
+        vistHistory : {
+            timestamp : Date.now()
+        }
+    }});
+    res.redirect(entry.RedirectUrl);
+})
 
 app.listen(PORT,()=>{
     console.log(`server is running on http://localhost:${PORT}`)
