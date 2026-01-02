@@ -30,7 +30,7 @@
 Shortify demonstrates real-world backend development skills including API design, database interactions, performance-focused redirects, and scalable system thinking—making it a strong portfolio project for software engineering roles.
 
 ---
-##📁 Project Structure
+## 📁 Project Structure
 
 Shortify/
 ├── CONTROLLERS/
