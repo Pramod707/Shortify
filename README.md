@@ -56,4 +56,6 @@ Shortify/
 * Authentication and user-based link management
 * Rate limiting and security enhancements
 
-![alt text](image.png)
+!["Short-URL"](image.png)
+
+!["URL Analytics"](image-1.png)
