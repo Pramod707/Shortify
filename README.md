@@ -32,21 +32,19 @@ Shortify demonstrates real-world backend development skills including API design
 ---
 ## 📁 Project Structure
 
+```bash
 Shortify/
 ├── CONTROLLERS/
 │   └── url.controller.js      # Business logic for URL creation and analytics
-│
 ├── MODELS/
 │   └── url.model.js           # Mongoose schema for shortened URLs
-│
 ├── ROUTES/
 │   └── url.routes.js          # API route definitions
-│
 ├── Connection.js              # MongoDB connection setup
 ├── index.js                   # Application entry point
 ├── package.json               # Project metadata and dependencies
 ├── README.md                  # Project documentation
-
+```
 
 ### 📈 Future Enhancements
 
