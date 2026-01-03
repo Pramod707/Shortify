@@ -13,13 +13,48 @@
 </head>
 
 <body>
-    <h1>URL SHORTNER SERVICE</h1>
-    <form method="post" action="/url">
-        <label>ENTER THE ORIGINAL URL</label>
-        <input type="text" name="url" placeholder="https://www.example.com" />
-        <button type="submit">Generate </button>
-    </form>
+    <h1> URL SHORTNER SERVICE</h1>
+    <% if (locals.id) { %>
+        <p>Short URL : http://localhost:8000/<%= id %>
+        </p>
 
+        <% } %>
+            <form method="post" action="/url">
+                <label>ENTER THE ORIGINAL URL</label>
+                <input type="text" name="url" placeholder="https://www.example.com" />
+                <button type="submit">Generate </button>
+            </form>
+            <div>
+                <% if (locals.urls) { %>
+                    <table>
+                       
+                        <thead>
+                            <th>S.NO</th>
+                            <th>ShortId</th>
+                            <th>Redirect</th>
+                            <th>Clicks</th>
+                        </thead>
+                        <tbody>
+                        <% urls.forEach((url,index)=> { %>
+                            <tr>
+                            <td>
+                                <%= index + 1 %>
+                            </td>
+                            <td>
+                                <%= url.shortId %>
+                            </td>
+                            <td>
+                                <%= url.RedirectUrl %>
+                            </td>
+                            <td>
+                                <%= url.visitHistory.length %>
+                            </td>
+                            <% }) %>
+                            </tr>
+                                </tbody>
+                    </table>
+                    <% } %>
+            </div>
 </body>
 
 </html>
