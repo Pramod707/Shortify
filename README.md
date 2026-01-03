@@ -53,7 +53,7 @@ Shortify/
 ├── index.js                    # Application entry point
 ├── package.json                # Project metadata and dependencies
 ├── README.md                   # Project documentation
-                 # Project documentation
+                 
 ```
 
 ### 📈 Future Enhancements
