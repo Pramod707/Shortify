@@ -11,6 +11,7 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./VIEWS"));
 //middleware
 app.use(express.json());
+app.use(express.urlencoded({extended : false}))
 //database connection
 connectToMongo("mongodb://127.0.0.1:27017/shortify")
     .then(() => console.log("database is connected successfully"))
@@ -33,8 +34,10 @@ app.get("/:shortId", async (req, res) => {
                     timestamp: Date.now(),
                 },
             },
-        }
+        },
+        {new : true}
     );
+    if(!entry)return res.json({err : "short url not found"})
     res.redirect(entry.RedirectUrl);
 });
 

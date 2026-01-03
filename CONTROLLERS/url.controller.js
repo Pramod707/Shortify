@@ -4,9 +4,9 @@ const url = require('../MODELS/url.model');
 //creating short url or posting the new url
 async function handleGenerateNewShortUrl(req,res) {
     const body = req.body;
-    if(!body)return res.status(400).json({error : 'url required'})
+    if(!body.url)return res.status(400).json({error : 'url required'})
     const shortId = nanoid(8);
-    url.create({
+   await url.create({
         shortId : shortId,
         RedirectUrl : body.url,
         vistHistory  : []

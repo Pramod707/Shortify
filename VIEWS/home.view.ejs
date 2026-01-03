@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    body {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
@@ -8,8 +13,13 @@
 </head>
 
 <body>
-    <h1>Hello from the server</h1>
-   
+    <h1>URL SHORTNER SERVICE</h1>
+    <form method="post" action="/url">
+        <label>ENTER THE ORIGINAL URL</label>
+        <input type="text" name="url" placeholder="https://www.example.com" />
+        <button type="submit">Generate </button>
+    </form>
+
 </body>
 
 </html>
