@@ -2,10 +2,12 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 const path = require("path");
+const Url = require("./MODELS/url.model");
 const { connectToMongo } = require("./Connection");
 const urlRoute = require("./ROUTES/url.routes");
 const staticRoutes = require("./ROUTES/staticRoutes");
-const Url = require("./MODELS/url.model");
+const UserRoute= require('./ROUTES/user.routes');
+
 //view engine
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./VIEWS"));
@@ -19,6 +21,8 @@ connectToMongo("mongodb://127.0.0.1:27017/shortify")
     
     //server side rendering route
     app.use("/", staticRoutes);
+    //user signup route
+    app.use("/user",UserRoute);
     //url routes
 //client side rendering route
 app.use("/url", urlRoute);
