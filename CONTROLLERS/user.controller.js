@@ -1,6 +1,4 @@
 const User = require("../MODELS/user.model");
-const User = require("../MODELS/user.model");
-
 //post request
 async function handelSignUp(req,res) {
 const {name,email,password} = ewq.body;
