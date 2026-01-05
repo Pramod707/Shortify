@@ -1,8 +1,9 @@
 const express = require('express');
 const Router = express.Router();
-const{handelSignUp} = require('../CONTROLLERS/user.controller');
+const{handelSignUp,handelLogin} = require('../CONTROLLERS/user.controller');
 
 Router.post('/',handelSignUp);
+Router.post('/login',handelLogin);
 
 
 
