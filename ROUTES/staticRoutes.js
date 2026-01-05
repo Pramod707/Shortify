@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get('/signup',(req,res)=>{
-  return res.render('user.view.ejs');
+  return res.render("signUp.view.ejs");
 })
 
 module.exports = router;
