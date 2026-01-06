@@ -1,6 +1,6 @@
-
- const{v4 : uuidv4} = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 const User = require("../MODELS/user.model");
+const {setUser} = require("../SERVICE/auth.service");
 //post signuprequest
 async function handelSignUp(req, res) {
   const { name, email, password } = req.body;
@@ -10,21 +10,24 @@ async function handelSignUp(req, res) {
     email,
     password,
   });
-  return res.redirect('/');
+  return res.redirect("/");
 }
 
 //post login request
-async function handelLogin(req,res) {
-    const{email, password} = req.body;
-    const user = await User.findOne({email,password});
-    if(!user)return res.render("login.view.ejs",{
-        error : "invalid user name or password"
+async function handelLogin(req, res) {
+  const { email, password } = req.body;
+  const user = await User.findOne({ email, password });
+  if (!user)
+    return res.render("login.view.ejs", {
+      error: "invalid user name or password",
     });
-    const sessionId = uuidv4();
-    return res.redirect('/');
+  const sessionId = uuidv4();
+  setUser(user,sessionId);
+  res.cookie("uuid", sessionId);
+  return res.redirect("/");
 }
 
 module.exports = {
   handelSignUp,
-  handelLogin
+  handelLogin,
 };
