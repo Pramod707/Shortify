@@ -64,7 +64,3 @@ Shortify/
 * Authentication and user-based link management
 * Rate limiting and security enhancements
 
-## client side rendering via-Post-Man
-!["Short-URL"](image.png)
-
-!["URL Analytics"](image-1.png)
