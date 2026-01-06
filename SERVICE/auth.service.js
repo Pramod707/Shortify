@@ -5,7 +5,7 @@ function setUser(user,id){
 }
 
 function getUser(id){
-    sessionIdToUserMap.get(id);
+   return sessionIdToUserMap.get(id);
 }
 
 module.exports = {
