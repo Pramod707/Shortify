@@ -1,3 +1,5 @@
+
+ const{v4 : uuidv4} = require("uuid");
 const User = require("../MODELS/user.model");
 //post signuprequest
 async function handelSignUp(req, res) {
@@ -18,6 +20,7 @@ async function handelLogin(req,res) {
     if(!user)return res.render("login.view.ejs",{
         error : "invalid user name or password"
     });
+    const sessionId = uuidv4();
     return res.redirect('/');
 }
 
