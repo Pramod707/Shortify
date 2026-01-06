@@ -21,9 +21,10 @@ async function handelLogin(req, res) {
     return res.render("login.view.ejs", {
       error: "invalid user name or password",
     });
+    //creating session
   const sessionId = uuidv4();
   setUser(user,sessionId);
-  res.cookie("uuid", sessionId);
+  res.cookie("uid", sessionId);
   return res.redirect("/");
 }
 
